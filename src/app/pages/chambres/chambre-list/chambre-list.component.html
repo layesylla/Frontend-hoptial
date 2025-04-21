@@ -1,0 +1,24 @@
+<div class="mb-3">
+    <button class="btn btn-success" [routerLink]="['/chambres/add']">➕ Ajouter</button>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Numéro</th>
+        <th>Lits disponibles</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of chambres">
+        <td>{{ c.numero }}</td>
+        <td>{{ c.litDisponible }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/chambres/edit', c.id]">✏️</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(c.id!)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

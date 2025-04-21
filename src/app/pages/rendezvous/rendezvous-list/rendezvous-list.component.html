@@ -1,0 +1,30 @@
+<div class="mb-3">
+    <button class="btn btn-success" [routerLink]="['/rendezvous/add']">➕ Ajouter</button>
+  </div>
+  
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Motif</th>
+        <th>Patient</th>
+        <th>Médecin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rdv of rendezvousList">
+        <td>{{ rdv.date }}</td>
+        <td>{{ rdv.heure }}</td>
+        <td>{{ rdv.motif }}</td>
+        <td>{{ rdv.patientId }}</td>
+        <td>{{ rdv.medecinId }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/rendezvous/edit', rdv.id]">✏️</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteRendezvous(rdv.id!)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

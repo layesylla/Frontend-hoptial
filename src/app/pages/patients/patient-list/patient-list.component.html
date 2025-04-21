@@ -1,0 +1,33 @@
+<div class="mb-3">
+  <a class="btn btn-success" [routerLink]="['/patients/add']">➕ Ajouter un patient</a>
+</div>
+
+<div class="mb-3">
+  <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText" />
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+      <th>Code</th>
+      <th>Téléphone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of filteredPatients">
+      <td>{{ patient.nom }}</td>
+      <td>{{ patient.prenom }}</td>
+      <td>{{ patient.email }}</td>
+      <td>{{ patient.code || '-' }}</td>
+      <td>{{ patient.telephone }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" [routerLink]="['/patients/edit', patient.id]">✏️</button>
+        <button class="btn btn-danger btn-sm" (click)="deletePatient(patient.id!)">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

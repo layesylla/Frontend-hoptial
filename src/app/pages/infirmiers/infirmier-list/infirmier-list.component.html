@@ -1,0 +1,22 @@
+<div class="mb-3">
+    <button class="btn btn-success" [routerLink]="['/infirmiers/add']">➕ Ajouter</button>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of infirmiers">
+        <td>{{ i.nom }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/infirmiers/edit', i.id]">✏️</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(i.id!)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between mb-3">
+    <h4>Notes Médicales</h4>
+    <button class="btn btn-primary" (click)="router.navigate(['/notes/add'])">➕ Ajouter une note</button>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ID Patient</th>
+        <th>Contenu</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of notes">
+        <td>{{ note.id }}</td>
+        <td>{{ note.patientId }}</td>
+        <td>{{ note.contenu }}</td>
+        <td>{{ note.date }}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" (click)="router.navigate(['/notes/edit', note.id])">✏️</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteNote(note.id!)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Liste des paiements</h4>
+    <button class="btn btn-success" [routerLink]="['/paiements/add']">➕ Ajouter</button>
+  </div>
+  
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Montant</th>
+        <th>Moyen</th>
+        <th>ID Patient</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of paiements">
+        <td>{{ p.id }}</td>
+        <td>{{ p.montant }} €</td>
+        <td>{{ p.moyen }}</td>
+        <td>{{ p.patientId }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/paiements/edit', p.id]">✏️</button>
+          <button class="btn btn-sm btn-danger" (click)="deletePaiement(p.id!)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

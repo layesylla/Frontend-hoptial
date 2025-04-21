@@ -1,0 +1,30 @@
+<h3>{{ isEditMode ? 'Modifier' : 'Ajouter' }} un rendez-vous</h3>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="mb-3">
+    <label>Date</label>
+    <input type="date" [(ngModel)]="rendezvous.date" name="date" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label>Heure</label>
+    <input type="time" [(ngModel)]="rendezvous.heure" name="heure" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label>Motif</label>
+    <input type="text" [(ngModel)]="rendezvous.motif" name="motif" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label>ID Patient</label>
+    <input type="number" [(ngModel)]="rendezvous.patientId" name="patientId" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label>ID Médecin</label>
+    <input type="number" [(ngModel)]="rendezvous.medecinId" name="medecinId" class="form-control" required />
+  </div>
+
+  <button class="btn btn-success" type="submit">💾 Enregistrer</button>
+</form>

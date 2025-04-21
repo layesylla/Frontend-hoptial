@@ -1,0 +1,13 @@
+<h3>{{ isEdit ? 'Modifier' : 'Ajouter' }} une chambre</h3>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label>Numéro</label>
+    <input type="text" [(ngModel)]="chambre.numero" name="numero" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label>Lits disponibles</label>
+    <input type="number" [(ngModel)]="chambre.litDisponible" name="litDisponible" class="form-control" required />
+  </div>
+  <button type="submit" class="btn btn-primary">✅ Enregistrer</button>
+</form>

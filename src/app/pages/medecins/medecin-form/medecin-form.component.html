@@ -1,0 +1,13 @@
+<h3>{{ isEdit ? 'Modifier' : 'Ajouter' }} un médecin</h3>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label>Nom</label>
+    <input type="text" [(ngModel)]="medecin.nom" name="nom" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label>Spécialité</label>
+    <input type="text" [(ngModel)]="medecin.specialite" name="specialite" class="form-control" required />
+  </div>
+  <button type="submit" class="btn btn-primary">✅ Enregistrer</button>
+</form>

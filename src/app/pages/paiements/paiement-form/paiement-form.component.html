@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-body">
+      <h3>{{ isEditMode ? 'Modifier' : 'Ajouter' }} un paiement</h3>
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label>Montant</label>
+          <input type="number" class="form-control" [(ngModel)]="paiement.montant" name="montant" required />
+        </div>
+        <div class="mb-3">
+          <label>Moyen</label>
+          <input type="text" class="form-control" [(ngModel)]="paiement.moyen" name="moyen" required />
+        </div>
+        <div class="mb-3">
+          <label>ID du patient</label>
+          <input type="number" class="form-control" [(ngModel)]="paiement.patientId" name="patientId" required />
+        </div>
+        <button class="btn btn-primary" type="submit">💾 Enregistrer</button>
+      </form>
+    </div>
+  </div>
+  

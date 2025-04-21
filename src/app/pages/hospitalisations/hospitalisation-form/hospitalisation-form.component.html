@@ -1,0 +1,20 @@
+<h3>{{ isEditMode ? 'Modifier' : 'Ajouter' }} une hospitalisation</h3>
+<form (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label>Patient ID</label>
+    <input type="number" class="form-control" [(ngModel)]="hospitalisation.patientId" name="patientId" required>
+  </div>
+  <div class="mb-3">
+    <label>Date début</label>
+    <input type="date" class="form-control" [(ngModel)]="hospitalisation.dateDebut" name="dateDebut" required>
+  </div>
+  <div class="mb-3">
+    <label>Date fin</label>
+    <input type="date" class="form-control" [(ngModel)]="hospitalisation.dateFin" name="dateFin">
+  </div>
+  <div class="mb-3">
+    <label>Traitement</label>
+    <textarea class="form-control" [(ngModel)]="hospitalisation.traitement" name="traitement" required></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">💾 Enregistrer</button>
+</form>

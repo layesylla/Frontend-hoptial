@@ -1,0 +1,28 @@
+<div class="mb-3 text-end">
+    <button class="btn btn-success" [routerLink]="['/hospitalisations/add']">➕ Ajouter</button>
+  </div>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>Date début</th>
+        <th>Date fin</th>
+        <th>Traitement</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of hospitalisations">
+        <td>{{ h.patientId }}</td>
+        <td>{{ h.dateDebut }}</td>
+        <td>{{ h.dateFin }}</td>
+        <td>{{ h.traitement }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" [routerLink]="['/hospitalisations/edit', h.id]">✏️</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteHospitalisation(h.id!)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
