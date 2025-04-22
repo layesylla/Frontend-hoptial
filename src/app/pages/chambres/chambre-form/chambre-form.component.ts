@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './chambre-form.component.html'
 })
 export class ChambreFormComponent implements OnInit {
-  chambre: Chambre = { numero: '', litDisponible: 0 };
+  chambre: Chambre = {id :0, numero: '', litDisponible: 0 };
   isEdit = false;
 
   constructor(
@@ -29,12 +29,13 @@ export class ChambreFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.chambre,"chambre",this.isEdit);
     if (this.isEdit) {
       this.service.updateChambre(this.chambre.id!, this.chambre)
   .subscribe(() => this.router.navigate(['/chambres']));
 
     } else {
-      this.service.addChambre(this.chambre).subscribe(() => this.router.navigate(['/chambres']));
+      this.service.addChambre(this.chambre).subscribe({next:(val)=>{console.log(val)},error:(val)=>{console.log(val)}});
     }
   }
 }

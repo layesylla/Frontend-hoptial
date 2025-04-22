@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -11,10 +11,12 @@ export interface Chambre {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  // Service fourni au niveau racine
 })
 export class ChambreService {
   private apiUrl = `${environment.apiUrl}/chambres`;
+
+  // Injection classique via le constructeur
   constructor(private http: HttpClient) {}
 
   getChambres(): Observable<Chambre[]> {

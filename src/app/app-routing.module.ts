@@ -12,6 +12,8 @@ import { ChambreListComponent } from './pages/chambres/chambre-list/chambre-list
 import { ChambreFormComponent } from './pages/chambres/chambre-form/chambre-form.component';
 import { PaiementFormComponent } from './pages/paiements/paiement-form/paiement-form.component';
 import { PaiementListComponent } from './pages/paiements/paiement-list/paiement-list.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -51,7 +53,7 @@ const routes: Routes = [
           { path: 'edit/:id', component: PaiementFormComponent }
         ]
       },
-  
+
       {
         path: 'notes',
         children: [
@@ -76,7 +78,7 @@ const routes: Routes = [
           { path: 'edit/:id', component: RendezvousFormComponent }
         ]
       },
-      
+
       {
         path: 'basic',
         loadChildren: () => import('./demo/ui-elements/ui-basic/ui-basic.module').then((m) => m.UiBasicModule)
@@ -103,14 +105,14 @@ const routes: Routes = [
     path: '',
     component: GuestComponent,
     children: [
-      
-      
+
+
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [BrowserModule,HttpClientModule,RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
